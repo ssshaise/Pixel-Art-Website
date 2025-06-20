@@ -148,18 +148,18 @@ const latestPosts = [
 
 // --- Helper Components ---
 const Card = ({ children, className = '', style = {} }) => (
-  <div style={style} className={`w-full bg-black/30 backdrop-blur-md border border-white/10 rounded-2xl p-6 transition-all duration-300 ease-in-out hover:border-white/20 hover:bg-black/40 ${className}`}>
+  <div style={style} className={`w-full bg-black/30 backdrop-blur-md border border-white/10 rounded-2xl p-4 md:p-6 transition-all duration-300 ease-in-out hover:border-white/20 hover:bg-black/40 ${className}`}>
     {children}
   </div>
 );
 
 
 const SectionTitle = ({ icon, title }) => (
-    <div className="flex items-center gap-3 mb-6">
+    <div className="flex items-center gap-3 mb-4 md:mb-6">
         <div className="bg-slate-800/60 p-2 rounded-full border border-white/10">
             {React.cloneElement(icon, { size: 20, className: "text-slate-300" })}
         </div>
-        <h2 className="text-3xl text-slate-200 tracking-wider">{title}</h2>
+        <h2 className="text-2xl md:text-3xl text-slate-200 tracking-wider">{title}</h2>
     </div>
 );
 
@@ -167,16 +167,16 @@ const SectionTitle = ({ icon, title }) => (
 
 const Header = ({ className = '', style = {} }) => (
     <div className={className} style={style}>
-        <h1 className="text-5xl text-slate-100 tracking-tighter">{personalInfo.name}</h1>
-        <p className="text-slate-300 mt-2 text-xl">{personalInfo.title}</p>
-        <p className="text-slate-400 text-base">{personalInfo.location}</p>
+        <h1 className="text-4xl md:text-5xl text-slate-100 tracking-tighter">{personalInfo.name}</h1>
+        <p className="text-slate-300 mt-2 text-lg md:text-xl">{personalInfo.title}</p>
+        <p className="text-slate-400 text-sm md:text-base">{personalInfo.location}</p>
     </div>
 );
 
 const AboutCard = ({ className = '', style = {} }) => (
     <Card className={className} style={style}>
         <SectionTitle icon={aboutMe.icon} title={aboutMe.title} />
-        <div className="space-y-3 text-slate-300 text-lg leading-relaxed">
+        <div className="space-y-3 text-slate-300 text-base md:text-lg leading-relaxed">
             {aboutMe.points.map((point, i) => (
                 <p key={i} className="transition-colors duration-200 hover:text-purple-300 cursor-default">
                     {point}
@@ -189,21 +189,21 @@ const AboutCard = ({ className = '', style = {} }) => (
 const ContactCard = ({ className = '', style = {} }) => (
     <Card className={className} style={style}>
         <SectionTitle icon={contactInfo.icon} title={contactInfo.title} />
-        <p className="text-base mb-4">{contactInfo.description}</p>
+        <p className="text-sm md:text-base mb-4">{contactInfo.description}</p>
         <div className="flex flex-col gap-3">
-            <a href={`mailto:${contactInfo.email}`} className="flex items-center gap-3 text-base text-slate-200 hover:text-purple-400 transition-colors">
+            <a href={`mailto:${contactInfo.email}`} className="flex items-center gap-3 text-sm md:text-base text-slate-200 hover:text-purple-400 transition-colors">
                 <Mail size={16} />
                 <span>{contactInfo.email}</span>
             </a>
-            <a href={contactInfo.linkedin} target="_blank" rel="noopener noreferrer" className="flex items-center gap-3 text-base text-slate-200 hover:text-purple-400 transition-colors">
+            <a href={contactInfo.linkedin} target="_blank" rel="noopener noreferrer" className="flex items-center gap-3 text-sm md:text-base text-slate-200 hover:text-purple-400 transition-colors">
                 <Linkedin size={16} />
                 <span>LinkedIn</span>
             </a>
-            <a href={contactInfo.github} target="_blank" rel="noopener noreferrer" className="flex items-center gap-3 text-base text-slate-200 hover:text-purple-400 transition-colors">
+            <a href={contactInfo.github} target="_blank" rel="noopener noreferrer" className="flex items-center gap-3 text-sm md:text-base text-slate-200 hover:text-purple-400 transition-colors">
                 <Github size={16} />
                 <span>GitHub</span>
             </a>
-            <a href={contactInfo.website} target="_blank" rel="noopener noreferrer" className="flex items-center gap-3 text-base text-slate-200 hover:text-purple-400 transition-colors">
+            <a href={contactInfo.website} target="_blank" rel="noopener noreferrer" className="flex items-center gap-3 text-sm md:text-base text-slate-200 hover:text-purple-400 transition-colors">
                 <Globe size={16} />
                 <span>Website</span>
             </a>
@@ -244,23 +244,25 @@ const GithubActivity = ({ className = '', style = {} }) => {
         <a href={contactInfo.github} target="_blank" rel="noopener noreferrer">
             <Card className={className} style={style}>
                 <SectionTitle icon={<GitBranch />} title="GitHub Activity" />
-                <div className="flex justify-between text-sm text-slate-400 mb-2">
-                    {months.map(month => <span key={month}>{month}</span>)}
+                <div className="overflow-x-auto">
+                    <div className="flex justify-between text-xs text-slate-400 mb-2 min-w-[600px]">
+                        {months.map(month => <span key={month} className="flex-1 text-center">{month}</span>)}
+                    </div>
+                    <div className="grid grid-flow-col grid-rows-7 gap-1 min-w-[600px]">
+                        {contributions.map((level, i) => (
+                            <div key={i} className={`w-full aspect-square rounded-sm ${getColor(level)}`} title={`Contribution level: ${level}`}></div>
+                        ))}
+                    </div>
                 </div>
-                <div className="grid grid-flow-col grid-rows-7 gap-px">
-                    {contributions.map((level, i) => (
-                        <div key={i} className={`w-3 h-3 rounded-sm ${getColor(level)}`} title={`Contribution level: ${level}`}></div>
-                    ))}
-                </div>
-                 <div className="flex justify-between items-center mt-2 text-sm text-slate-400">
+                 <div className="flex justify-between items-center mt-2 text-xs md:text-sm text-slate-400">
                     <span>343 contributions in the last year</span>
                     <div className="flex items-center gap-1">
                         <span>Less</span>
-                        <div className="w-3 h-3 rounded-sm bg-slate-800/80"></div>
-                        <div className="w-3 h-3 rounded-sm bg-green-900"></div>
-                        <div className="w-3 h-3 rounded-sm bg-green-700"></div>
-                        <div className="w-3 h-3 rounded-sm bg-green-500"></div>
-                        <div className="w-3 h-3 rounded-sm bg-green-400"></div>
+                        <div className="w-2 h-2 md:w-3 md:h-3 rounded-sm bg-slate-800/80"></div>
+                        <div className="w-2 h-2 md:w-3 md:h-3 rounded-sm bg-green-900"></div>
+                        <div className="w-2 h-2 md:w-3 md:h-3 rounded-sm bg-green-700"></div>
+                        <div className="w-2 h-2 md:w-3 md:h-3 rounded-sm bg-green-500"></div>
+                        <div className="w-2 h-2 md:w-3 md:h-3 rounded-sm bg-green-400"></div>
                         <span>More</span>
                     </div>
                 </div>
@@ -295,13 +297,13 @@ const ProjectCard = ({ className = '', style = {} }) => {
                 <img src={project.image} alt={project.title} className="w-full h-48 object-cover transition-transform duration-500" />
                 <div className="absolute inset-0 bg-gradient-to-t from-black/80 to-transparent"></div>
                  <div className="absolute bottom-0 left-0 p-4">
-                    <h3 className="font-bold text-2xl text-white">{project.title}</h3>
-                    <p className="text-slate-300 text-base">{project.description}</p>
+                    <h3 className="font-bold text-xl md:text-2xl text-white">{project.title}</h3>
+                    <p className="text-slate-300 text-sm md:text-base">{project.description}</p>
                 </div>
             </div>
             <div className="flex flex-wrap gap-2 mt-4">
                 {project.tags.map(tag => (
-                    <span key={tag} className="bg-slate-800/80 text-purple-300 text-sm px-2 py-1 rounded-full border border-slate-700">{tag}</span>
+                    <span key={tag} className="bg-slate-800/80 text-purple-300 text-xs md:text-sm px-2 py-1 rounded-full border border-slate-700">{tag}</span>
                 ))}
             </div>
             <div className="mt-4">
@@ -309,7 +311,7 @@ const ProjectCard = ({ className = '', style = {} }) => {
                     href={project.repoUrl} 
                     target="_blank" 
                     rel="noopener noreferrer" 
-                    className="inline-flex items-center gap-2 text-sm text-slate-200 bg-slate-800/80 px-4 py-2 rounded-full border border-slate-700 hover:bg-slate-700 hover:text-purple-400 transition-colors"
+                    className="inline-flex items-center gap-2 text-sm md:text-base text-slate-200 bg-slate-800/80 px-4 py-2 rounded-full border border-slate-700 hover:bg-slate-700 hover:text-purple-400 transition-colors"
                 >
                     <Github size={16} />
                     <span>View on GitHub</span>
@@ -328,11 +330,11 @@ const ExperienceCard = ({ className = '', style = {} }) => (
                     <div className="w-1 bg-slate-700 rounded-full"></div>
                     <div>
                         <div className="flex justify-between items-baseline">
-                            <h3 className="font-bold text-slate-200 text-lg">{exp.role}</h3>
-                            <span className="text-sm text-slate-500">{exp.duration}</span>
+                            <h3 className="font-bold text-slate-200 text-base md:text-lg">{exp.role}</h3>
+                            <span className="text-xs md:text-sm text-slate-500">{exp.duration}</span>
                         </div>
-                        <p className="text-purple-400 text-base">{exp.company}</p>
-                        <p className="text-slate-400 text-base mt-1">{exp.description}</p>
+                        <p className="text-purple-400 text-sm md:text-base">{exp.company}</p>
+                        <p className="text-slate-400 text-sm md:text-base mt-1">{exp.description}</p>
                     </div>
                 </div>
             ))}
@@ -343,10 +345,10 @@ const ExperienceCard = ({ className = '', style = {} }) => (
 const EducationCard = ({ className = '', style = {} }) => (
     <Card className={className} style={style}>
         <SectionTitle icon={<GraduationCap />} title="Education" />
-        <h3 className="font-bold text-slate-200 text-lg">{education.degree}</h3>
-        <p className="text-purple-400 text-base">{education.college}</p>
-        <p className="text-slate-500 text-sm mt-1">{education.location}</p>
-        <p className="text-slate-500 text-sm">{education.duration}</p>
+        <h3 className="font-bold text-slate-200 text-base md:text-lg">{education.degree}</h3>
+        <p className="text-purple-400 text-sm md:text-base">{education.college}</p>
+        <p className="text-slate-500 text-xs md:text-sm mt-1">{education.location}</p>
+        <p className="text-slate-500 text-xs md:text-sm">{education.duration}</p>
     </Card>
 )
 
@@ -358,11 +360,11 @@ const SkillsCard = ({ className = '', style = {} }) => (
             <div key={skillGroup.category}>
                 <div className="flex items-center gap-2 mb-3">
                     {skillGroup.icon}
-                    <h3 className="font-bold text-slate-300 text-lg">{skillGroup.category}</h3>
+                    <h3 className="font-bold text-slate-300 text-base md:text-lg">{skillGroup.category}</h3>
                 </div>
                 <div className="flex flex-wrap gap-2">
                     {skillGroup.items.map(item => (
-                        <span key={item} className="bg-slate-800/80 text-slate-300 text-sm px-3 py-1.5 rounded-full border border-slate-700">{item}</span>
+                        <span key={item} className="bg-slate-800/80 text-slate-300 text-xs md:text-sm px-3 py-1.5 rounded-full border border-slate-700">{item}</span>
                     ))}
                 </div>
             </div>
@@ -379,8 +381,8 @@ const AchievementsCard = ({ className = '', style = {} }) => (
                 <div key={i} className="flex items-start gap-3">
                     {ach.icon}
                     <div>
-                        <h4 className="font-bold text-slate-200 leading-tight text-lg">{ach.title}</h4>
-                        <p className="text-base text-slate-400">{ach.description}</p>
+                        <h4 className="font-bold text-slate-200 leading-tight text-base md:text-lg">{ach.title}</h4>
+                        <p className="text-sm md:text-base text-slate-400">{ach.description}</p>
                     </div>
                 </div>
             ))}
@@ -394,9 +396,9 @@ const LatestPostsCard = ({ className = '', style = {} }) => (
         {latestPosts.map((post, i) => (
             <div key={i}>
                 <img src={post.image} alt={post.title} className="rounded-lg mb-3"/>
-                <p className="text-sm text-slate-500">{post.date}</p>
-                <h3 className="font-bold text-slate-200 mb-2 text-lg">{post.title}</h3>
-                <a href="#" className="flex items-center gap-1 text-base text-purple-400 hover:underline">
+                <p className="text-xs md:text-sm text-slate-500">{post.date}</p>
+                <h3 className="font-bold text-slate-200 mb-2 text-base md:text-lg">{post.title}</h3>
+                <a href="#" className="flex items-center gap-1 text-sm md:text-base text-purple-400 hover:underline">
                     Read more <ExternalLink size={14} />
                 </a>
             </div>
@@ -434,7 +436,7 @@ export default function App() {
         },
     };
     
-    // Preload background images to prevent twitching
+    // Preload background images
     useEffect(() => {
         const lightBg = new Image();
         lightBg.src = themeConfig.light.bgImage;
@@ -452,7 +454,6 @@ export default function App() {
         document.body.style.backgroundAttachment = 'fixed';
         document.body.style.backgroundColor = theme === 'light' ? '#1e293b' : '#020617';
         document.body.style.fontFamily = "'VT323', monospace";
-        document.body.style.cursor = 'default';
 
     }, [theme]);
 
