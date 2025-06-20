@@ -52,21 +52,21 @@ const projects = [
         title: "ReasearchGpt",
         description: "Built and deployed an AI chatbot using LangChain and Gemini-Pro for fast, accurate document analysis across PDFs, images, and text with FAISS-based retrieval.",
         tags: ["Python", "LangChain", "Streamlit", "FAISS"],
-        image: "researchgpt.png",
+        image: "/assetss/researchgpt.png",
         repoUrl: "https://github.com/ssshaise/ruchir-srivastava-wasserstoff-AiInternTask"
     },
     {
         title: "PlantGuard",
         description: "Built a high-accuracy plant disease detection system using EfficientNet and DeepLabV3, achieving 92% classification accuracy with custom-labeled, augmented data and precise leaf segmentation.",
         tags: ["Python", "OpenCV","Tensorflow", "EfficientNet"],
-        image: "plantguard.png",
+        image: "/assetss/plantguard.png",
         repoUrl: "https://github.com/ssshaise/PlantGuard"
     },
     {
         title: "Deepfake Detector with XAI",
         description : "Designed a multi-modal deepfake and disinformation detection system integrating visual and textual data, achieving a 92% F1-score with interpretability via SHAP and LIME.",
         tags : ["Python", "PyTorch", "OpenCV", "BERT" , "SHAP", "LIME"],    
-        image: "deepfakedet.png",
+        image: "/assetss/deepfakedet.png",
         repoUrl: "https://github.com/ssshaise/Deepfake-Disinformation-Detector"
     },
 ];
@@ -141,7 +141,7 @@ const latestPosts = [
     {
         date: "May 20, 2024",
         title: "Integrating OpenAI API with a Streamlit App",
-        image: "post.png"
+        image: "/assetss/post.png"
     }
 ];
 
@@ -427,10 +427,10 @@ export default function App() {
 
     const themeConfig = {
         light: {
-            bgImage: 'light.png',
+            bgImage: '/assetss/light.png',
         },
         dark: {
-            bgImage: 'dark.jpg',
+            bgImage: '/assetss/dark.jpg',
         },
     };
     
