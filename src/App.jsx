@@ -147,8 +147,8 @@ const latestPosts = [
 
 
 // --- Helper Components ---
-const Card = ({ children, className = '' }) => (
-  <div className={`w-full bg-black/30 backdrop-blur-md border border-white/10 rounded-2xl p-6 transition-all duration-300 ease-in-out hover:border-white/20 hover:bg-black/40 ${className}`}>
+const Card = ({ children, className = '', style = {} }) => (
+  <div style={style} className={`w-full bg-black/30 backdrop-blur-md border border-white/10 rounded-2xl p-6 transition-all duration-300 ease-in-out hover:border-white/20 hover:bg-black/40 ${className}`}>
     {children}
   </div>
 );
@@ -165,16 +165,16 @@ const SectionTitle = ({ icon, title }) => (
 
 // --- Main Sections ---
 
-const Header = ({ className = '' }) => (
-    <div className={className}>
+const Header = ({ className = '', style = {} }) => (
+    <div className={className} style={style}>
         <h1 className="text-5xl text-slate-100 tracking-tighter">{personalInfo.name}</h1>
         <p className="text-slate-300 mt-2 text-xl">{personalInfo.title}</p>
         <p className="text-slate-400 text-base">{personalInfo.location}</p>
     </div>
 );
 
-const AboutCard = ({ className = '' }) => (
-    <Card className={className}>
+const AboutCard = ({ className = '', style = {} }) => (
+    <Card className={className} style={style}>
         <SectionTitle icon={aboutMe.icon} title={aboutMe.title} />
         <div className="space-y-3 text-slate-300 text-lg leading-relaxed">
             {aboutMe.points.map((point, i) => (
@@ -186,8 +186,8 @@ const AboutCard = ({ className = '' }) => (
     </Card>
 );
 
-const ContactCard = ({ className = '' }) => (
-    <Card className={className}>
+const ContactCard = ({ className = '', style = {} }) => (
+    <Card className={className} style={style}>
         <SectionTitle icon={contactInfo.icon} title={contactInfo.title} />
         <p className="text-base mb-4">{contactInfo.description}</p>
         <div className="flex flex-col gap-3">
@@ -211,11 +211,11 @@ const ContactCard = ({ className = '' }) => (
     </Card>
 );
 
-const GithubActivity = ({ className = '' }) => {
+const GithubActivity = ({ className = '', style = {} }) => {
     // Static contribution data to ensure consistency
     const contributions = [
-      0, 1, 2, 0, 1, 3, 1, 0, 0, 1, 2, 1, 2, 0, 1, 2, 3, 2, 1, 0, 0,
-      1, 2, 3, 2, 1, 0, 0, 1, 2, 1, 2, 0, 1, 2, 3, 2, 1, 0, 0, 1, 2,
+      0, 1, 0, 0, 1, 0, 0, 0, 0, 1, 2, 0, 0, 0, 1, 0, 3, 2, 1, 0, 0,
+      0, 1, 0, 2, 0, 0, 0, 0, 2, 1, 0, 0, 0, 1, 0, 3, 2, 0, 0, 0, 1,
       1, 2, 0, 1, 2, 3, 2, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,
       0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,
       2, 1, 0, 1, 2, 0, 1, 3, 1, 2, 0, 1, 0, 1, 2, 0, 1, 2, 1, 0, 0,
@@ -242,7 +242,7 @@ const GithubActivity = ({ className = '' }) => {
 
     return (
         <a href={contactInfo.github} target="_blank" rel="noopener noreferrer">
-            <Card className={className}>
+            <Card className={className} style={style}>
                 <SectionTitle icon={<GitBranch />} title="GitHub Activity" />
                 <div className="flex justify-between text-sm text-slate-400 mb-2">
                     {months.map(month => <span key={month}>{month}</span>)}
@@ -270,7 +270,7 @@ const GithubActivity = ({ className = '' }) => {
 };
 
 
-const ProjectCard = ({ className = '' }) => {
+const ProjectCard = ({ className = '', style = {} }) => {
     const [current, setCurrent] = useState(0);
 
     const nextProject = () => setCurrent(prev => (prev + 1) % projects.length);
@@ -279,7 +279,7 @@ const ProjectCard = ({ className = '' }) => {
     const project = projects[current];
 
     return (
-        <Card className={className}>
+        <Card className={className} style={style}>
             <div className="flex justify-between items-center mb-4">
                  <SectionTitle icon={<Briefcase />} title="Projects" />
                 <div className="flex items-center gap-2">
@@ -319,8 +319,8 @@ const ProjectCard = ({ className = '' }) => {
     );
 };
 
-const ExperienceCard = ({ className = '' }) => (
-    <Card className={className}>
+const ExperienceCard = ({ className = '', style = {} }) => (
+    <Card className={className} style={style}>
         <SectionTitle icon={<Briefcase />} title="Experience" />
         <div className="space-y-6">
             {experiences.map((exp, i) => (
@@ -331,8 +331,8 @@ const ExperienceCard = ({ className = '' }) => (
                             <h3 className="font-bold text-slate-200 text-lg">{exp.role}</h3>
                             <span className="text-sm text-slate-500">{exp.duration}</span>
                         </div>
-                        <p className="text-purple-400 text-lg">{exp.company}</p>
-                        <p className="text-slate-400 text-lg mt-1">{exp.description}</p>
+                        <p className="text-purple-400 text-base">{exp.company}</p>
+                        <p className="text-slate-400 text-base mt-1">{exp.description}</p>
                     </div>
                 </div>
             ))}
@@ -340,18 +340,18 @@ const ExperienceCard = ({ className = '' }) => (
     </Card>
 );
 
-const EducationCard = ({ className = '' }) => (
-    <Card className={className}>
+const EducationCard = ({ className = '', style = {} }) => (
+    <Card className={className} style={style}>
         <SectionTitle icon={<GraduationCap />} title="Education" />
         <h3 className="font-bold text-slate-200 text-lg">{education.degree}</h3>
-        <p className="text-purple-400 text-lg">{education.college}</p>
-        <p className="text-slate-500 text-base mt-1">{education.location}</p>
-        <p className="text-slate-500 text-base">{education.duration}</p>
+        <p className="text-purple-400 text-base">{education.college}</p>
+        <p className="text-slate-500 text-sm mt-1">{education.location}</p>
+        <p className="text-slate-500 text-sm">{education.duration}</p>
     </Card>
 )
 
-const SkillsCard = ({ className = '' }) => (
-    <Card className={className}>
+const SkillsCard = ({ className = '', style = {} }) => (
+    <Card className={className} style={style}>
         <SectionTitle icon={<Star />} title="Skills" />
         <div className="grid grid-cols-1 sm:grid-cols-2 gap-6">
         {skills.map(skillGroup => (
@@ -371,8 +371,8 @@ const SkillsCard = ({ className = '' }) => (
     </Card>
 );
 
-const AchievementsCard = ({ className = '' }) => (
-    <Card className={className}>
+const AchievementsCard = ({ className = '', style = {} }) => (
+    <Card className={className} style={style}>
         <SectionTitle icon={<Award />} title="Certifications" />
         <div className="space-y-4">
             {achievements.map((ach, i) => (
@@ -388,8 +388,8 @@ const AchievementsCard = ({ className = '' }) => (
     </Card>
 )
 
-const LatestPostsCard = ({ className = '' }) => (
-    <Card className={className}>
+const LatestPostsCard = ({ className = '', style = {} }) => (
+    <Card className={className} style={style}>
         <SectionTitle icon={<BookOpen />} title="Latest Posts" />
         {latestPosts.map((post, i) => (
             <div key={i}>
@@ -434,6 +434,14 @@ export default function App() {
         },
     };
     
+    // Preload background images to prevent twitching
+    useEffect(() => {
+        const lightBg = new Image();
+        lightBg.src = themeConfig.light.bgImage;
+        const darkBg = new Image();
+        darkBg.src = themeConfig.dark.bgImage;
+    }, []);
+
     useEffect(() => {
         const currentBgImage = theme === 'light' ? themeConfig.light.bgImage : themeConfig.dark.bgImage;
         document.body.style.backgroundImage = `url('${currentBgImage}')`;
@@ -444,6 +452,7 @@ export default function App() {
         document.body.style.backgroundAttachment = 'fixed';
         document.body.style.backgroundColor = theme === 'light' ? '#1e293b' : '#020617';
         document.body.style.fontFamily = "'VT323', monospace";
+        document.body.style.cursor = 'default';
 
     }, [theme]);
 
@@ -452,6 +461,20 @@ export default function App() {
             <style>
                 {`
                     @import url('https://fonts.googleapis.com/css2?family=VT323&display=swap');
+                    .fade-in {
+                        animation: fadeInAnimation 0.5s ease-in-out both;
+                    }
+
+                    @keyframes fadeInAnimation {
+                        from {
+                            opacity: 0;
+                            transform: translateY(20px);
+                        }
+                        to {
+                            opacity: 1;
+                            transform: translateY(0);
+                        }
+                    }
                 `}
             </style>
             <ThemeToggle theme={theme} setTheme={setTheme} />
@@ -460,24 +483,24 @@ export default function App() {
 
                     {/* Left Column */}
                     <div className="lg:col-span-4 flex flex-col gap-6">
-                        <AboutCard />
-                        <ContactCard />
-                        <EducationCard />
-                        <LatestPostsCard />
+                        <AboutCard className="fade-in" style={{ animationDelay: '0.2s' }}/>
+                        <ContactCard className="fade-in" style={{ animationDelay: '0.3s' }}/>
+                        <EducationCard className="fade-in" style={{ animationDelay: '0.4s' }}/>
+                        <LatestPostsCard className="fade-in" style={{ animationDelay: '0.5s' }}/>
                     </div>
 
                     {/* Right Column */}
                     <div className="lg:col-span-8 flex flex-col gap-6">
-                        <Header />
-                        <GithubActivity />
+                        <Header className="fade-in" style={{ animationDelay: '0.1s' }}/>
+                        <GithubActivity className="fade-in" style={{ animationDelay: '0.6s' }}/>
                         <div className="grid grid-cols-1 md:grid-cols-2 gap-6 md:items-start">
                            <div className="flex flex-col gap-6">
-                                <ProjectCard />
-                                <ExperienceCard />
+                                <ProjectCard className="fade-in" style={{ animationDelay: '0.7s' }}/>
+                                <ExperienceCard className="fade-in" style={{ animationDelay: '0.9s' }}/>
                            </div>
                            <div className="flex flex-col gap-6">
-                                <SkillsCard />
-                                <AchievementsCard />
+                                <SkillsCard className="fade-in" style={{ animationDelay: '0.8s' }}/>
+                                <AchievementsCard className="fade-in" style={{ animationDelay: '1.0s' }}/>
                            </div>
                         </div>
                     </div>
