@@ -4,7 +4,7 @@
 
 A dynamic and visually engaging personal portfolio website built with modern web technologies. This project showcases my skills, experience, and projects in an interactive, pixel-art themed interface with a sleek glassmorphism design.
 
-**Live Deployement:** [your-live-demo-url.com](https://ruchirsrivastava.vercel.app/)
+**Live Deployement:** [website](https://ruchirsrivastava.vercel.app/)
 
 ---
 
