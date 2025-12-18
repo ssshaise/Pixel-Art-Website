@@ -52,22 +52,19 @@ const projects = [
         title: "ReasearchGpt",
         description: "Built and deployed an AI chatbot using LangChain and Gemini-Pro for fast, accurate document analysis across PDFs, images, and text with FAISS-based retrieval.",
         tags: ["Python", "LangChain", "Streamlit", "FAISS"],
-        image: "/public/img1.png",
-        repoUrl: "https://github.com/ssshaise/ResearchGPT"
+        repoUrl: "https://github.com/ssshaise/Doc-Analysis-and-Theme-Synthesis-CB"
     },
     {
+        title: "Real-Time Causal Inference Engine",
+        description : "Real-Time Causal Inference Engine (RCIE) is a research-grade decision support system designed to answer - What If? questions.",
+        tags : ["Python", "PyTorch", "sklearn", "causalml" , "torch-SEM", "FastAPI"],    
+        repoUrl: "https://github.com/ssshaise/Real-Time-Causal-Inference-Engine"
+    },
+     {
         title: "PlantGuard",
         description: "Built a high-accuracy plant disease detection system using EfficientNet and DeepLabV3, achieving 92% classification accuracy with custom-labeled, augmented data and precise leaf segmentation.",
         tags: ["Python", "OpenCV","Tensorflow", "EfficientNet"],
-        image: "/public/img2.png",
         repoUrl: "https://github.com/ssshaise/PlantGuard"
-    },
-    {
-        title: "Deepfake Detector with XAI",
-        description : "Designed a multi-modal deepfake and disinformation detection system integrating visual and textual data, achieving a 92% F1-score with interpretability via SHAP and LIME.",
-        tags : ["Python", "PyTorch", "OpenCV", "BERT" , "SHAP", "LIME"],    
-        image: "/public/img3.png" ,
-        repoUrl: "https://github.com/ssshaise/Deepfake-Disinformation-Detector"
     },
 ];
 
@@ -293,13 +290,13 @@ const ProjectCard = ({ className = '', style = {} }) => {
                     </button>
                 </div>
             </div>
-            <div className="relative overflow-hidden rounded-lg">
-                <img src={project.image} alt={project.title} className="w-full h-48 object-cover transition-transform duration-500" />
-                <div className="absolute inset-0 bg-gradient-to-t from-black/80 to-transparent"></div>
-                 <div className="absolute bottom-0 left-0 p-4">
-                    <h3 className="font-bold text-xl md:text-2xl text-white">{project.title}</h3>
-                    <p className="text-slate-300 text-sm md:text-base">{project.description}</p>
-                </div>
+            <div className="mb-4">
+                <h3 className="font-bold text-xl md:text-2xl text-slate-200">
+                {project.title}
+                </h3>
+                    <p className="text-slate-400 text-sm md:text-base mt-1">
+                    {project.description}
+                </p>
             </div>
             <div className="flex flex-wrap gap-2 mt-4">
                 {project.tags.map(tag => (
