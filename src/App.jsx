@@ -52,21 +52,21 @@ const projects = [
         title: "ReasearchGpt",
         description: "Built and deployed an AI chatbot using LangChain and Gemini-Pro for fast, accurate document analysis across PDFs, images, and text with FAISS-based retrieval.",
         tags: ["Python", "LangChain", "Streamlit", "FAISS"],
-        image: "https://i.postimg.cc/RZ3G6F2B/458107c8-07b5-46ce-91e8-ff2c9a59de4e.png",
+        image: "C:/Users/ruchi/my-portfolio-react/public/img1.png",
         repoUrl: "https://github.com/ssshaise/ResearchGPT"
     },
     {
         title: "PlantGuard",
         description: "Built a high-accuracy plant disease detection system using EfficientNet and DeepLabV3, achieving 92% classification accuracy with custom-labeled, augmented data and precise leaf segmentation.",
         tags: ["Python", "OpenCV","Tensorflow", "EfficientNet"],
-        image: "https://i.postimg.cc/9QVNDTyq/c8030c2d-c0eb-4206-acbe-7f6086561408.png",
+        image: "C:/Users/ruchi/my-portfolio-react/public/img2.png",
         repoUrl: "https://github.com/ssshaise/PlantGuard"
     },
     {
         title: "Deepfake Detector with XAI",
         description : "Designed a multi-modal deepfake and disinformation detection system integrating visual and textual data, achieving a 92% F1-score with interpretability via SHAP and LIME.",
         tags : ["Python", "PyTorch", "OpenCV", "BERT" , "SHAP", "LIME"],    
-        image: "https://i.postimg.cc/kgQGcrVp/f2e1bf77-c5d6-4062-8a7c-c246148f45fa.png",
+        image: "C:/Users/ruchi/my-portfolio-react/public/img3.png",
         repoUrl: "https://github.com/ssshaise/Deepfake-Disinformation-Detector"
     },
 ];
