@@ -14,7 +14,7 @@ const aboutMe = {
   points: [
     "Data Scientist - AI Engineer",
     "Full Stack Developer",
-    "prev - ds intern @ Mamta BioEnzymes",
+    "prev - ds intern @ ValianceAI",
     "based in new delhi",
     "builds ai solutons for real-world problems",
     "loves ai, machine learning & cats",
@@ -35,9 +35,9 @@ const contactInfo = {
 const experiences = [
   {
     role: "Data Scientist Intern",
-    company: "Mamta BioEnzymes | New Delhi, IN",
+    company: "ValianceAI | Gurgaon, IN",
     duration: "Jan 2025 - April 2025",
-    description: "At Mamta Bio Enzymes, I helped develop AI-based systems for email threat detection, working on datasets, Python prototypes, and production-ready code. I also contributed to patent research and strengthened my ML and cybersecurity skills through global collaboration.",
+    description: "At ValianceAI, I helped develop AI-based systems for email threat detection, working on datasets, Python prototypes, and production-ready code. I also contributed to patent research and strengthened my ML and cybersecurity skills through global collaboration.",
   },
   {
     role: "Web Dev Intern",
