@@ -137,8 +137,9 @@ const achievements = [
 const latestPosts = [
     {
         date: "May 20, 2024",
-        title: "Integrating OpenAI API with a Streamlit App",
-        image: "https://i.postimg.cc/kXP1BZS5/Screenshot-2025-06-20-035237.png"
+        title: "From Correlation to Causation: Building a Real-Time Causal Inference Engine in Python",
+        image: "https://i.postimg.cc/BQfmdKvH/img4.png",
+        link: "https://medium.com/@ruchir412393/from-correlation-to-causation-building-a-real-time-causal-inference-engine-in-python-7eb2033c3008"
     }
 ];
 
@@ -395,7 +396,7 @@ const LatestPostsCard = ({ className = '', style = {} }) => (
                 <img src={post.image} alt={post.title} className="rounded-lg mb-3"/>
                 <p className="text-xs md:text-sm text-slate-500">{post.date}</p>
                 <h3 className="font-bold text-slate-200 mb-2 text-base md:text-lg">{post.title}</h3>
-                <a href="#" className="flex items-center gap-1 text-sm md:text-base text-purple-400 hover:underline">
+                <a href={post.link} target="_blank" rel="noopener noreferrer" className="flex items-center gap-1 text-sm md:text-base text-purple-400 hover:underline">
                     Read more <ExternalLink size={14} />
                 </a>
             </div>
