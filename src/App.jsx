@@ -16,7 +16,7 @@ const aboutMe = {
     "Full Stack Developer",
     "prev - ds intern @ ValianceAI",
     "based in new delhi",
-    "builds ai solutons for real-world problems",
+    "builds ai solutoins for real-world problems",
     "loves ai, machine learning & cats",
     "obsessed with solving real-world problems",
   ],
