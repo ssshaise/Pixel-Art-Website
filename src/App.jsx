@@ -35,8 +35,8 @@ const contactInfo = {
 const experiences = [
   {
     role: "Data Scientist Intern",
-    company: "ValianceAI | Gurgaon, IN",
-    duration: "Jan 2025 - April 2025",
+    company: "Valiance Solutions | Gurgaon, IN",
+    duration: "Jun 2025 - Aug 2025",
     description: "At ValianceAI, I helped develop AI-based systems for email threat detection, working on datasets, Python prototypes, and production-ready code. I also contributed to patent research and strengthened my ML and cybersecurity skills through global collaboration.",
   },
   {
